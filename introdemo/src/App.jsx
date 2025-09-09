@@ -1,6 +1,6 @@
 const Hello = (props) => {
-  const name = props.name
-  const age = props.age
+  // Destructued name and age out of props
+  const { name, age } = props
   // bornYear is known as a "Helper function" because it adds functionality to the component.
   const bornYear = () => new Date().getFullYear() - age
 
