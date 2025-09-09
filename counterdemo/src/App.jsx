@@ -1,18 +1,8 @@
 // Framework Imports
 import { useState } from 'react'
 
-const Button = (props) => {
-  return (
-    <button onClick={props.onClick}>
-      {props.text}
-    </button>
-  )
-}
-const Display = (props) => {
-  return (
-    <div>{props.counter}</div>
-  )
-}
+const Button = ({ onClick, text}) => <button onClick={onClick}>{text}</button>
+const Display = ({ counter }) => <div>{counter}</div>
 
 const App = () => {
   // Adds state to the component with the value of 0
