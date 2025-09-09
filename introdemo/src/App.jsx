@@ -1,6 +1,5 @@
-const Hello = (props) => {
-  // Destructued name and age out of props
-  const { name, age } = props
+// Destructuring props name and age directly into variables name and age.
+const Hello = ({ name, age }) => {
   // bornYear is known as a "Helper function" because it adds functionality to the component.
   const bornYear = () => new Date().getFullYear() - age
 
