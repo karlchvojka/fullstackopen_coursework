@@ -1,11 +1,16 @@
 const Hello = (props) => {
-  console.log(props)
+  // bornYear is known as a "Helper function" because it adds functionality to the component.
+  const bornYear = () => {
+    const yearNow = new Date().getFullYear()
+    return yearNow - props.age
+  }
 
   return (
     <div>
       <p>
         Hello {props.name}, you are {props.age} years old
       </p>
+      <p>So you were probably born in {bornYear()}</p>
     </div>
   )
 }
