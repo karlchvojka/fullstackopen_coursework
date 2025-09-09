@@ -1,8 +1,7 @@
-const App = () => {
+const App = (props) => {
+  const { counter } = props
   return (
-    <div>
-      <p>Hello World</p>
-    </div>
+    <div>{counter}</div>
   )
 }
 
