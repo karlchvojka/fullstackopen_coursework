@@ -15,9 +15,12 @@ const App = () => {
     setValue(newValue)
   }
 
+  // DONT DO THIS
+  const Display = props => <div>{props.value}</div>
+
   return (
     <div>
-      {value}
+      <Display value={value} />
       <Button onClick={() => setToValue(1000)} text="thousand" />
       <Button onClick={() => setToValue(0)} text="thousand" />
       <Button onClick={() => setToValue(value + 1)} text="increment" />
