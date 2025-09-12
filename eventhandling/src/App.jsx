@@ -1,6 +1,8 @@
 // Framework Imports
 import { useState } from 'react'
 
+const Display = props => <div>{props.value}</div>
+
 const Button = (props) => {
   <button onClick={props.onClick}>
     {props.text}
@@ -14,9 +16,6 @@ const App = () => {
     console.log('value now', newValue)
     setValue(newValue)
   }
-
-  // DONT DO THIS
-  const Display = props => <div>{props.value}</div>
 
   return (
     <div>
