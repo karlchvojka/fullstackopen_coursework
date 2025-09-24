@@ -18,23 +18,27 @@ const App = () => {
   // On Render
   useEffect(() => {
     noteService
-      .getAll()
-      .then(initialNotes => {
+      .getAll().then((initialNotes) => {
         setNotes(initialNotes)
       })
   }, [])
   
   // Helper Functions
-  const toggleImportanceOf = id => {
-    const note = notes.find(n => n.id === id)
+  const toggleImportanceOf = (id) => {
+    const note = notes.find((n) => n.id === id)
     const changedNote = { ...note, important: !note.important }
 
     noteService
       .update(id, changedNote)
-      .then(returnedNote => {
-        setNotes(notes.map(note => note.id === id ? returnedNote : note))
+      .then((returnedNote) => {
+        setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)))
+      })
+      .catch((error) => {
+        alert(`the note '${note.content}' was already deleted from server`)
+        setNotes(notes.filter((n) => n.id !== id))
       })
   }
+
   const addNote = (event) => {
     event.preventDefault()
     const noteObject = {
@@ -42,9 +46,7 @@ const App = () => {
       important: Math.random() < 0.5,
     }
     
-    noteService
-      .create(noteObject)
-      .then(returnedNote => {
+    noteService.create(noteObject).then((returnedNote) => {
         setNotes(notes.concat(returnedNote))
         setNewNote('')
       })
@@ -54,20 +56,18 @@ const App = () => {
     setNewNote(event.target.value)
   }
 
-  const notesToShow = showAll
-    ? notes
-    : notes.filter(note => note.important)
+  const notesToShow = showAll ? notes : notes.filter((note) => note.important)
 
   return (
     <div>
       <h1>Notes</h1>
       <div>
         <button onClick={() => setShowAll(!showAll)}>
-          show {showAll ? `important` : `all`}
+          show {showAll ? 'important' : 'all'}
         </button>
       </div>
       <ul>
-        {notesToShow.map(note =>
+        {notesToShow.map((note) =>
           <Note
             key={note.id}
             note={note}
