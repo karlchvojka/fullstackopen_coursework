@@ -3,12 +3,12 @@
     {
       "id": "1",
       "content": "HTML is easy",
-      "important": false
+      "important": true
     },
     {
       "id": "2",
       "content": "Browser can execute only JavaScript",
-      "important": false
+      "important": true
     },
     {
       "id": "3",
@@ -24,6 +24,11 @@
       "id": "9706",
       "content": "your test. my test",
       "important": false
+    },
+    {
+      "id": "e073",
+      "content": "the best test",
+      "important": true
     }
   ]
 }
