@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 // Component imports
+import Footer from './components/Footer'
 import Note from './components/Note'
 import Notification from './components/Notification'
 
@@ -52,7 +53,6 @@ const App = () => {
       content: newNote,
       important: Math.random() < 0.5,
     }
-    
     noteService.create(noteObject).then((returnedNote) => {
         setNotes(notes.concat(returnedNote))
         setNewNote('')
@@ -89,7 +89,8 @@ const App = () => {
           onChange={handleNoteChange}
         />
         <button type="submit">save</button>
-     </form>
+      </form>
+      <Footer />
     </div>
   )
 }
